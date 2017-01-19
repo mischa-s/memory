@@ -5,7 +5,13 @@ const ReactDOM = require('react-dom')
 const HighScore = (props) =>  {
   return (
     <div className='container-highscore'>
-      <h1>HighScore Component here! </h1>
+        <table>
+          <tbody>
+            <tr>
+              <td>Name: Score:</td>
+            </tr>
+          </tbody>
+        </table>
     </div>
   )
 }
