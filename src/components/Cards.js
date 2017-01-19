@@ -2,7 +2,6 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const _ = require('lodash')
 
-
 const Cards = (props) =>  {
 
   console.log(props, 'here are the prosp');
