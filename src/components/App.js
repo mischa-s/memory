@@ -16,7 +16,7 @@ const {Route, Router, IndexRoute, hashHistory} = require('react-router')
 
 const App = (props) =>  {
 
-  const highScores = props.state.highScores
+  const highScores = _.map(props.state.highScores)
   return (
     <div>
       <Score />
@@ -27,8 +27,3 @@ const App = (props) =>  {
   )
 }
 module.exports = App
-
-
-function double(prop) {
-  return 2*prop
-}

@@ -4,26 +4,19 @@ const ReactDOM = require('react-dom')
 
 
 const HighScore = (props) =>  {
-  console.log('array of keys', _.map(props.highScores, value => value));
-  console.log('props', props);
+  const highScores = props.highScores
 
   return (
     <div className='container-highscore'>
         <table>
           <thead>
             <tr>
-              <th>Score</th>
               <th>Name</th>
+              <th>Score</th>
             </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>  name
-            </td>
-            <td>
-            score
-            </td>
-          </tr>
+          {highScores.map(highScore => <tr><td>{highScore.Name}</td><td>{highScore.Score}</td></tr>)}
           </tbody>
         </table>
     </div>
