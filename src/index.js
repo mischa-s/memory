@@ -4,10 +4,10 @@ const ReactDOM = require('react-dom')
 const { createStore } = require('redux')
 const reducer = require('./reducer')
 const request = require('superagent')
-const {Route, Router, IndexRoute, hashHistory} = require('react-router')
+
 
 //Components
-const SubmitName = require('../src/components/SubmitName')
+const App = require('../src/components/App')
 const store = createStore(reducer)
 
 document.addEventListener('DOMContentLoaded', (e) => {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   function render (state) {
     const root = document.querySelector('#app')
     ReactDOM.render(
-      <SubmitName/>,
+      <App state={state} store={store}/>,
       root
     )
   }
