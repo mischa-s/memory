@@ -6,11 +6,24 @@ const PATHS = {
 }
 
 module.exports = {
-  entry: PATHS.entry,
+  entry:  PATHS.entry,
+  
 
   output: {
     path: PATHS.output,
     filename: 'bundle.js',
+  },
+  resolve: {
+    root: __dirname,
+    alias: {
+      App: 'src/components/App.js',
+      Score: 'src/components/Score.js',
+      Cards: 'src/components/Cards.js',
+      SubmitName: 'src/components/SubmitName.js',
+      HighScore: 'src/components/HighScore.js'
+
+    },
+    extensions: ['','.js','.jsx']
   },
 
   devServer: {
