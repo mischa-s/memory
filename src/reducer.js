@@ -17,7 +17,7 @@ module.exports = function (state, action) {
         const randomCardPosition = Math.floor(Math.random() * cardValues.length)
         const card = {
           id: i,
-          value: cardValues.splice(randomCardPosition, 1),
+          value: cardValues.splice(randomCardPosition, 1)[0],
           visable: false
         }
         newState.cards[i] = (card)
@@ -27,7 +27,8 @@ module.exports = function (state, action) {
     case 'UPDATE_HIGHSCORES':
 
       // console.log("action payload", action.payload);
-
+      default:
+      return state
 
   }
 
