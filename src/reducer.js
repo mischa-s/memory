@@ -10,7 +10,7 @@ module.exports = function (state, action) {
 
     case 'UPDATE_HIGHSCORES':
 
-      console.log("action payload", action.payload);
+      // console.log("action payload", action.payload);
 
 
   }

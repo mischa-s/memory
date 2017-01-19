@@ -15,8 +15,18 @@ const {Route, Router, IndexRoute, hashHistory} = require('react-router')
 const App = (props) =>  {
   return (
     <div>
+      <h1>Game Of Cards</h1>
+        <table>
+          <tbody>
+            {
+                _.map(cards, (card) => {
+                return <Cards {...cards} store={store} />
+                })
+            }
+          </tbody>
+        </table>
       <Score />
-      <Cards />
+
       <SubmitName />
       <HighScore />
     </div>

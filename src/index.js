@@ -6,9 +6,17 @@ const reducer = require('./reducer')
 const request = require('superagent')
 
 
+const state = {
+    cards: {},
+    cardRevealed: null,
+    highScores: {}
+  }
+
+
+
 //Components
 const App = require('../src/components/App')
-const store = createStore(reducer)
+const store = createStore(reducer, initialState)
 
 document.addEventListener('DOMContentLoaded', (e) => {
 
