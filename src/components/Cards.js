@@ -1,7 +1,6 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 
-
 const Cards = (props) =>  {
   return (
     <div className='container-cards'>

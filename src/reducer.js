@@ -9,10 +9,10 @@ module.exports = function (state, action) {
       return newState
 
     case 'UPDATE_HIGHSCORES':
-
       console.log("action payload", action.payload);
 
-
+    default:
+      return newState
   }
 
 }
