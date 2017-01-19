@@ -6,8 +6,16 @@ const reducer = require('./reducer')
 const request = require('superagent')
 
 
+const state = {
+  cards: {},
+  cardRevealed: null,
+  highScores: {}
+}
+
+
 //Components
 const App = require('../src/components/App')
+<<<<<<< HEAD
 
 const initialState = {
   cards: {},
@@ -37,15 +45,22 @@ const initialState = {
 }
 
 const store = createStore(reducer, initialState)
+=======
+const store = createStore(reducer, state)
+
+>>>>>>> 6c6917db4b771defb8fb270e6ab04eb2514cdd07
 
 document.addEventListener('DOMContentLoaded', (e) => {
 
+store.dispatch({type: 'RANDOMISE_CARDS'})
+console.log(store.getState(), 'here is the state');
   store.subscribe(() => {
     const state = store.getState()
     render(state)
   })
 
   function render (state) {
+    console.log(state);
     const root = document.querySelector('#app')
     ReactDOM.render(
       <App state={state} store={store}/>,
@@ -57,4 +72,5 @@ document.addEventListener('DOMContentLoaded', (e) => {
     store.dispatch({type: 'UPDATE_HIGHSCORES', payload: res.body})
 
   })
+  render(store.getState())
 })

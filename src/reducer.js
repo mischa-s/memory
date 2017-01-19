@@ -17,24 +17,26 @@ module.exports = function (state, action) {
         const randomCardPosition = Math.floor(Math.random() * cardValues.length)
         const card = {
           id: i,
-          value: cardValues.splice(randomCardPosition, 1),
+          value: cardValues.splice(randomCardPosition, 1)[0],
           visable: false
         }
         newState.cards[i] = (card)
       }
       return newState
 
-    // case 'UPDATE_HIGHSCORES':
-    //   sortedHighscores = action.payload.sort(function(a, b){
-    //     return a.Score - b.Score
-    //   })
-    //   for (var i = 0; i < sortedHighscores.length; i++) {
-    //     newState.highScores[i + 1] = sortedHighscores[i]
-    //   }
-      // return newState
-
-      default:
+    case 'UPDATE_HIGHSCORES':
+       sortedHighscores = action.payload.sort(function(a, b){
+        return a.Score - b.Score
+      })
+      for (var i = 0; i < sortedHighscores.length; i++) {
+        newState.highScores[i + 1] = sortedHighscores[i]
+      }
       return newState
+
+      // console.log("action payload", action.payload);
+      default:
+        return state
+
 
   }
 
