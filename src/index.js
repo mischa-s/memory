@@ -8,7 +8,6 @@ const {Route, Router, IndexRoute, hashHistory} = require('react-router')
 
 //Components
 const SubmitName = require('../src/components/SubmitName')
-const App = require('./components/app')
 const store = createStore(reducer)
 
 document.addEventListener('DOMContentLoaded', (e) => {
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   function render (state) {
     const root = document.querySelector('#app')
     ReactDOM.render(
-      <App state={state} store={store} />,
+      <SubmitName/>,
       root
     )
   }
@@ -31,13 +30,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
   })
 
-  store.dispatch({type: 'get going!'})
-       ReactDOM.render(
-         <SubmitName />,
-         root
-       )
-     }
-     store.dispatch({type: 'GO!'})
+  store.dispatch({type: 'GO!'})
 
 })
-
