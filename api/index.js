@@ -1,7 +1,5 @@
-const myRoute = require('./a-resource')
+const highScores = require('./highScores')
 
 module.exports = {
-  myRoute
+  highScores
 }
-
-
