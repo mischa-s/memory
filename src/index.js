@@ -4,34 +4,19 @@ const ReactDOM = require('react-dom')
 const { createStore } = require('redux')
 const reducer = require('./reducer')
 const request = require('superagent')
+const {Route, Router, IndexRoute, hashHistory} = require('react-router')
 
-// components
+//Components
+const SubmitName = require('../src/components/SubmitName')
 const App = require('./components/app')
-const CounterApp = require('./components/counter-app')
-
-
-
-// actions
-// plain object {type: string, payload: Object | string | number}
-
-// model -> state
-
-// reducer (state, action) :: -> state
-const initialState = {
-  total: 0
-}
-
-
-const store = createStore(reducer, initialState)
+const store = createStore(reducer)
 
 document.addEventListener('DOMContentLoaded', (e) => {
 
   store.subscribe(() => {
-    const state = store.getState()
-    console.log('state', state)
-    render(state)
-  })
-
+     const state = store.getState()
+     render(state)
+   })
 
   function render (state) {
     const root = document.querySelector('#app')
@@ -47,6 +32,12 @@ document.addEventListener('DOMContentLoaded', (e) => {
   })
 
   store.dispatch({type: 'get going!'})
-
+       ReactDOM.render(
+         <SubmitName />,
+         root
+       )
+     }
+     store.dispatch({type: 'GO!'})
 
 })
+
