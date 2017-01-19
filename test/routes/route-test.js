@@ -9,8 +9,6 @@ const db = require('../../db')(testKnex)
 
 function makeApp () {
   const app = express()
-  // set route namespace under test
- // app.use('/api/v1/cats', catsApi)
   return app
 }
 
@@ -58,4 +56,3 @@ test.afterEach.always(() => {
 //      t.is(rows[0].name, tibbles.name)
 //    })
 //})
-
