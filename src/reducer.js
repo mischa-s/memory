@@ -3,6 +3,7 @@ const _ = require('lodash')
 
 module.exports = function (state, action) {
   const newState = clone(state)
+
   switch (action.type) {
 
     case 'RANDOMISE_CARDS':
@@ -24,6 +25,7 @@ module.exports = function (state, action) {
       return newState
 
     case 'UPDATE_HIGHSCORES':
+
       sortedHighscores = action.payload.sort(function(a, b){
         return a.Score - b.Score
       })
@@ -32,4 +34,5 @@ module.exports = function (state, action) {
       }
       return newState
   }
+
 }

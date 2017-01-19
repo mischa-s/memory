@@ -7,10 +7,10 @@ module.exports = function(db) {
   route.post("/", post);
 
  function get(req, res, next) {
-  //   db.find('High Scores')
-  //     .then ((highScores)) => {
-  //       res.json({ data: [ "my", "data" ]})
-  //     }
+    db.find('highScores', {})
+      .then (highScores => {
+        res.json({ data: highScores })
+      })
   }
   function post(req, res, next) {}
 

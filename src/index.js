@@ -26,10 +26,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   }
 
   request('/api/v1/highscores', (err, res) => {
-  store.dispatch({type: 'UPDATE_HIGHSCORES', payload: res.body})
+    store.dispatch({type: 'UPDATE_HIGHSCORES', payload: res.body})
 
   })
-
-  store.dispatch({type: 'GO!'})
-
 })

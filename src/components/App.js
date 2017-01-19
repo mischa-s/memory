@@ -15,9 +15,9 @@ const {Route, Router, IndexRoute, hashHistory} = require('react-router')
 const App = (props) =>  {
   return (
     <div>
-      <SubmitName />
       <Score />
       <Cards />
+      <SubmitName />
       <HighScore />
     </div>
   )
