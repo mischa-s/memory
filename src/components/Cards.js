@@ -1,6 +1,7 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 const _ = require('lodash')
+const reducer = require ('reducer')
 
 const Cards = (props) =>  {
 
@@ -11,7 +12,7 @@ const Cards = (props) =>  {
       {
         props.keys.map(key => {
           return (
-            <td className='each-card'>{key}</td>
+            <td className='each-card' onClick={() => props.store.dispatch({type:'CLICKED_CARD', payload: key})}>{key}</td>
           )
         })
       }
