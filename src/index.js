@@ -10,6 +10,8 @@ const state = {
   cards: {},
   cardRevealed: null,
   highScores: {},
+  gameComplete: false,
+  turnCount: 0,
   secondCardRevealed: null
 }
 
@@ -18,37 +20,6 @@ const state = {
 
 const App = require('App')
 const store = createStore(reducer, state)
-
-
-const initialState = {
-  cards: {},
-  cardRevealed: null,
-  secondCardRevealed: null,
-  gameComplete: false,
-  turnCount: 0,
-  highScores: {
-    1: {
-      id: 4,
-      Name: 'Donny',
-      Score: 12
-    },
-    2: {
-      id: 1,
-      Name: 'Leo',
-      Score: 56
-    },
-    3: {
-      id: 3,
-      Name: 'Mike',
-      Score: 142
-    },
-    4: {
-      id: 2,
-      Name: 'Raphyl',
-      Score: 24
-    }
-  }
-}
 
 document.addEventListener('DOMContentLoaded', (e) => {
 

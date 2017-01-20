@@ -8,7 +8,7 @@ const Score = (props) =>  {
         <table>
           <tbody>
             <tr>
-              <td>Your Score is:</td>
+              <td>Your Score is: {props.state.turnCount}</td>
             </tr>
           </tbody>
         </table>

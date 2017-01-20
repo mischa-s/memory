@@ -14,6 +14,7 @@ module.exports = function(db) {
       .catch(next)
   }
   function post(req, res, next) {
+    console.log(req.body)
     db.addName('highScores', req.body)
       .then((highScores) => {
         res.json({highScores})
