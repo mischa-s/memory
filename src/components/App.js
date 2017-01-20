@@ -38,7 +38,7 @@ const staticCardKeys = [
             }
           </tbody>
         </table>
-      <Score />
+      <Score state={state} />
 
       <SubmitName />
       <HighScore highScores={highScores} />

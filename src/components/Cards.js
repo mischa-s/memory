@@ -12,14 +12,15 @@ const Cards = (props) =>  {
     <tr className='cards-row'>
       {
         props.keys.map(key => {
-          const valueToShow = props.state.cards[key].visable
+          const colourToShow = props.state.cards[key].visable
             ? props.state.cards[key].value
-            : key
+            : 'white'
 
           return (
-            <td className='each-card'
-            onClick={() => props.store.dispatch({type:'CLICKED_CARD', payload: key})}>
-            {valueToShow}
+            <td
+              className={`each-card ${colourToShow}`}
+              style={{'background-color': colourToShow}}
+              onClick={() => props.store.dispatch({type:'CLICKED_CARD', payload: key})}>
             </td>
           )
         })
