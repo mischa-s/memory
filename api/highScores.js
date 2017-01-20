@@ -11,9 +11,16 @@ module.exports = function(db) {
       .then (highScores => {
         res.json(highScores)
       })
+      .catch(next)
   }
-  function post(req, res, next) {}
-
+  function post(req, res, next) {
+    console.log('req.body', req.body)
+    db.addName('highScores', req.body)
+      .then((highScores) => {
+        res.json({highScores})
+      })
+      .catch(next)
+  }
 
   return route;
 };
