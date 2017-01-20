@@ -3,6 +3,7 @@ const _ = require('lodash')
 
 module.exports = function (state, action) {
   const newState = clone(state)
+
   switch (action.type) {
 
     case 'RANDOMISE_CARDS':
@@ -16,7 +17,7 @@ module.exports = function (state, action) {
         const randomCardPosition = Math.floor(Math.random() * cardValues.length)
         const card = {
           id: i,
-          value: cardValues.splice(randomCardPosition, 1),
+          value: cardValues.splice(randomCardPosition, 1)[0],
           visable: false
         }
         newState.cards[i] = (card)
@@ -24,7 +25,7 @@ module.exports = function (state, action) {
       return newState
 
     case 'UPDATE_HIGHSCORES':
-      sortedHighscores = action.payload.sort(function(a, b){
+       sortedHighscores = action.payload.sort(function(a, b){
         return a.Score - b.Score
       })
       for (var i = 0; i < sortedHighscores.length; i++) {
@@ -32,7 +33,7 @@ module.exports = function (state, action) {
       }
       return newState
 
-    case 'CLICKED_CARD':
+
       const revealedCard = newState.cards[newState.cardRevealed]
       const clickedCard = newState.cards[action.payload]
       const secondRevealedCard = newState.cards[newState.secondCardRevealed]
@@ -65,5 +66,8 @@ module.exports = function (state, action) {
 
       return newState
 
+    default:
+      return state
   }
+
 }

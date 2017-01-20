@@ -5,7 +5,13 @@ const ReactDOM = require('react-dom')
 const Score = (props) =>  {
   return (
     <div className='container-score'>
-      <h1>Score component here!</h1>
+        <table>
+          <tbody>
+            <tr>
+              <td>Your Score is:</td>
+            </tr>
+          </tbody>
+        </table>
     </div>
   )
 }
