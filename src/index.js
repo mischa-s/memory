@@ -9,12 +9,13 @@ const request = require('superagent')
 const state = {
   cards: {},
   cardRevealed: null,
-  highScores: {}
+  highScores: {},
+  secondCardRevealed: null
 }
 
 
 //Components
-const App = require('../src/components/App')
+const App = require('App')
 const store = createStore(reducer, state)
 
 
