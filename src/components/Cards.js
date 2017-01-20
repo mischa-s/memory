@@ -4,6 +4,7 @@ const _ = require('lodash')
 const reducer = require ('reducer')
 
 const Cards = (props) =>  {
+  console.log(props.state.cards, "here are the props");
 
 // var ids = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 
@@ -11,8 +12,15 @@ const Cards = (props) =>  {
     <tr className='cards-row'>
       {
         props.keys.map(key => {
+          const valueToShow = props.state.cards[key].visable
+            ? props.state.cards[key].value
+            : key
+
           return (
-            <td className='each-card' onClick={() => props.store.dispatch({type:'CLICKED_CARD', payload: key})}>{key}</td>
+            <td className='each-card'
+            onClick={() => props.store.dispatch({type:'CLICKED_CARD', payload: key})}>
+            {valueToShow}
+            </td>
           )
         })
       }
