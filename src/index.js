@@ -19,6 +19,9 @@ const App = require('../src/components/App')
 const initialState = {
   cards: {},
   cardRevealed: null,
+  secondCardRevealed: null,
+  gameComplete: false,
+  turnCount: 0,
   highScores: {
     1: {
       id: 4,
