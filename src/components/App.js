@@ -17,15 +17,14 @@ const {Route, Router, IndexRoute, hashHistory} = require('react-router')
 // App({state: state, store:store})
 
 const App = (props) =>  {
-console.log('Props.state', props.state);
-const highScores = _.map(props.state.highScores)
-const {store, state} = props
-const staticCardKeys = [
-  [1,2,3,4],
-  [5,6,7,8],
-  [9,10,11,12],
-  [13,14,15,16]
-]
+  const highScores = _.map(props.state.highScores)
+  const {store, state} = props
+  const staticCardKeys = [
+    [1,2,3,4],
+    [5,6,7,8],
+    [9,10,11,12],
+    [13,14,15,16]
+  ]
   return (
     <div>
       <h1>Game Of Cards</h1>
@@ -40,7 +39,7 @@ const staticCardKeys = [
         </table>
       <Score />
 
-      <SubmitName />
+      <SubmitName store={store}/>
       <HighScore highScores={highScores} />
     </div>
   )

@@ -4,7 +4,7 @@ const _ = require('lodash')
 module.exports = function (state, action) {
   const newState = clone(state)
   switch (action.type) {
-
+    
     case 'RANDOMISE_CARDS':
       const oneSetCardValues = ['Red', 'Blue', 'Yellow', 'Green', 'Orange', 'Purple', 'Black', 'White']
       const cardValues = []
