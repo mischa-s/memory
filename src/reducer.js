@@ -35,7 +35,7 @@ module.exports = function (state, action) {
     case 'CLICKED_CARD':
       const revealedCard = newState.cards[newState.cardRevealed]
       const clickedCard = newState.cards[action.payload]
-      
+
       if(!newState.cardRevealed){
         newState.cardRevealed = action.payload
         clickedCard.visable = true
@@ -46,12 +46,13 @@ module.exports = function (state, action) {
       if(revealedCard.value === clickedCard.value){ //
         revealedCard.visable = true
         clickedCard.visable = true
+        newState.cardRevealed = null
 
       }else{
         revealedCard.visable = false
+        newState.secondCardRevealed = action.payload
       }
-      newState.cardRevealed = null
-
+      console.log(newState);
 
       return newState
   }
