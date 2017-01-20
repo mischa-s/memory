@@ -39,7 +39,7 @@ const App = (props) =>  {
         </table>
       <Score state={state} />
 
-      <SubmitName store={store}/>
+      <SubmitName store={store} state={state}/>
       <HighScore highScores={highScores} />
     </div>
   )
