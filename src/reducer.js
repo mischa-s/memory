@@ -38,7 +38,9 @@ module.exports = function (state, action) {
       const clickedCard = newState.cards[action.payload]
       const secondRevealedCard = newState.cards[newState.secondCardRevealed]
 
-
+      if(newState.cardRevealed === action.payload && !newState.secondCardRevealed){
+        return newState
+      }
 
       if(!newState.cardRevealed){
         newState.cardRevealed = action.payload
