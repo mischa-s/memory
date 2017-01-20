@@ -47,7 +47,7 @@ test('CLICKED_CARD | should check if the card matches the cardRevealed or reveal
       3: {
         id: 4,
         value: 'blue',
-        visable: false
+        visable: true
       },
       4: {
         id: 2,

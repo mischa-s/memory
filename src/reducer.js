@@ -31,5 +31,28 @@ module.exports = function (state, action) {
         newState.highScores[i + 1] = sortedHighscores[i]
       }
       return newState
+
+    case 'CLICKED_CARD':
+      const revealedCard = newState.cards[newState.cardRevealed]
+      const clickedCard = newState.cards[action.payload]
+      
+      if(!newState.cardRevealed){
+        newState.cardRevealed = action.payload
+        clickedCard.visable = true
+
+        return newState
+      }
+
+      if(revealedCard.value === clickedCard.value){ //
+        revealedCard.visable = true
+        clickedCard.visable = true
+
+      }else{
+        revealedCard.visable = false
+      }
+      newState.cardRevealed = null
+
+
+      return newState
   }
 }
