@@ -25,7 +25,8 @@ module.exports = function (state, action) {
       return newState
 
     case 'UPDATE_HIGHSCORES':
-       sortedHighscores = action.payload.sort(function(a, b){
+        console.log('action', action.payload)
+        const sortedHighscores = action.payload.sort(function(a, b){
         return a.Score - b.Score
       })
       for (var i = 0; i < sortedHighscores.length; i++) {
