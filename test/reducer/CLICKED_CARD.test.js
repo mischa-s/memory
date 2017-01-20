@@ -70,6 +70,10 @@ test('CLICKED_CARD | should check if the card matches the cardRevealed or reveal
 
   t.deepEqual(expectedState1, newState1, 'should change cardRevealed to the clicked card if it was null')
 
+  const newState5 = reducer(newState1, action1)
+
+  t.deepEqual(expectedState1, newState5, 'clicking the same card tiwce should not change the game')
+
   const expectedState2 = {
     cards: {
       1: {
