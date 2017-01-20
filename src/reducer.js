@@ -25,7 +25,7 @@ module.exports = function (state, action) {
       return newState
 
     case 'UPDATE_HIGHSCORES':
-       sortedHighscores = action.payload.sort(function(a, b){
+        const sortedHighscores = action.payload.sort(function(a, b){
         return a.Score - b.Score
       })
       for (var i = 0; i < sortedHighscores.length; i++) {
@@ -33,6 +33,7 @@ module.exports = function (state, action) {
       }
       return newState
 
+    case 'CLICKED_CARD':
 
       const revealedCard = newState.cards[newState.cardRevealed]
       const clickedCard = newState.cards[action.payload]
