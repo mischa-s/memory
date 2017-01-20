@@ -50,8 +50,6 @@ const initialState = {
   }
 }
 
-const store = createStore(reducer, state)
-
 document.addEventListener('DOMContentLoaded', (e) => {
 
 store.dispatch({type: 'RANDOMISE_CARDS'})
