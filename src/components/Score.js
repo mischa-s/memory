@@ -3,6 +3,7 @@ const ReactDOM = require('react-dom')
 
 
 const Score = (props) =>  {
+  console.log(props);
   return (
     <div className='container-score'>
         <table>

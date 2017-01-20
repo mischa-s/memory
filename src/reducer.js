@@ -6,7 +6,7 @@ module.exports = function (state, action) {
   switch (action.type) {
     
     case 'RANDOMISE_CARDS':
-      const oneSetCardValues = ['Red', 'Blue', 'Yellow', 'Green', 'Orange', 'Purple', 'Black', 'White']
+      const oneSetCardValues = ['red', 'blue', 'yellow', 'green', 'orange', 'purple', 'black', 'silver']
       const cardValues = []
       oneSetCardValues.forEach(cardValue => {
         cardValues.push(cardValue)
