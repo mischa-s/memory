@@ -28,6 +28,7 @@ test('CLICKED_CARD | should check if the card matches the cardRevealed or reveal
       }
     },
     cardRevealed: null,
+    secondCardRevealed: null,
     highScores: {}
   }
   freeze(state)
@@ -56,6 +57,7 @@ test('CLICKED_CARD | should check if the card matches the cardRevealed or reveal
       }
     },
     cardRevealed: 3,
+    secondCardRevealed: null,
     highScores: {}
   }
 
@@ -78,12 +80,12 @@ test('CLICKED_CARD | should check if the card matches the cardRevealed or reveal
       2: {
         id: 1,
         value: 'red',
-        visable: false
+        visable: true
       },
       3: {
         id: 4,
         value: 'blue',
-        visable: false
+        visable: true
       },
       4: {
         id: 2,
@@ -91,7 +93,8 @@ test('CLICKED_CARD | should check if the card matches the cardRevealed or reveal
         visable: false
       }
     },
-    cardRevealed: null,
+    cardRevealed: 3,
+    secondCardRevealed: 2,
     highScores: {}
   }
 
@@ -102,7 +105,7 @@ test('CLICKED_CARD | should check if the card matches the cardRevealed or reveal
 
   const newState2 = reducer(newState1, action2)
 
-  t.deepEqual(expectedState2, newState2, 'should change revealed card back to null if no match')
+  t.deepEqual(expectedState2, newState2, 'should set second revealed card if no match')
 
   const expectedState3 = {
     cards: {
@@ -128,6 +131,7 @@ test('CLICKED_CARD | should check if the card matches the cardRevealed or reveal
       }
     },
     cardRevealed: null,
+    secondCardRevealed: null,
     highScores: {}
   }
 
@@ -139,6 +143,38 @@ test('CLICKED_CARD | should check if the card matches the cardRevealed or reveal
   const newState3 = reducer(newState1, action3)
 
   t.deepEqual(expectedState3, newState3, 'should change cards to visable if a match')
+
+const expectedState4 = {
+    cards: {
+      1: {
+        id: 3,
+        value: 'blue',
+        visable: false
+      },
+      2: {
+        id: 1,
+        value: 'red',
+        visable: false
+      },
+      3: {
+        id: 4,
+        value: 'blue',
+        visable: false
+      },
+      4: {
+        id: 2,
+        value: 'red',
+        visable: false
+      }
+    },
+    cardRevealed: null,
+    secondCardRevealed: null,
+    highScores: {}
+  }
+
+  const newState4 = reducer(expectedState2, action1)
+
+  t.deepEqual(expectedState4, newState4, 'should reset the state on clicking anywhere')
 
   t.end()
 })
