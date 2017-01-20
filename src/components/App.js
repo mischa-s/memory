@@ -37,7 +37,7 @@ const App = (props) =>  {
             }
           </tbody>
         </table>
-      <Score />
+      <Score state={state} />
 
       <SubmitName store={store}/>
       <HighScore highScores={highScores} />

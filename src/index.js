@@ -10,7 +10,9 @@ const state = {
   cards: {},
   cardRevealed: null,
   highScores: {},
-  secondCardRevealed: null
+  secondCardRevealed: null,
+  gameComplete: false,
+  turnCount: 0,
 }
 
 

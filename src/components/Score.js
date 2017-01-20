@@ -3,12 +3,13 @@ const ReactDOM = require('react-dom')
 
 
 const Score = (props) =>  {
+  console.log(props);
   return (
     <div className='container-score'>
         <table>
           <tbody>
             <tr>
-              <td>Your Score is:</td>
+              <td>Your Score is:{props.state.turnCount}</td>
             </tr>
           </tbody>
         </table>
