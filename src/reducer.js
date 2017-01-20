@@ -16,7 +16,7 @@ module.exports = function (state, action) {
         const randomCardPosition = Math.floor(Math.random() * cardValues.length)
         const card = {
           id: i,
-          value: cardValues.splice(randomCardPosition, 1),
+          value: cardValues.splice(randomCardPosition, 1)[0],
           visable: false
         }
         newState.cards[i] = (card)
@@ -24,7 +24,7 @@ module.exports = function (state, action) {
       return newState
 
     case 'UPDATE_HIGHSCORES':
-      sortedHighscores = action.payload.sort(function(a, b){
+      const sortedHighscores = action.payload.sort(function(a, b){
         return a.Score - b.Score
       })
       for (var i = 0; i < sortedHighscores.length; i++) {
@@ -75,6 +75,9 @@ module.exports = function (state, action) {
         newState.secondCardRevealed = action.payload
       }
 
+      return newState
+
+    default:
       return newState
 
   }
