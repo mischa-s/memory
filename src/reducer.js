@@ -25,11 +25,52 @@ module.exports = function (state, action) {
       return newState
 
     case 'UPDATE_HIGHSCORES':
+        const sortedHighscores = action.payload.sort(function(a, b){
+        return a.Score - b.Score
+      })
+      for (var i = 0; i < sortedHighscores.length; i++) {
+        newState.highScores[i + 1] = sortedHighscores[i]
+      }
+      return newState
 
-      // console.log("action payload", action.payload);
-      default:
+    case 'CLICKED_CARD':
+
+      const revealedCard = newState.cards[newState.cardRevealed]
+      const clickedCard = newState.cards[action.payload]
+      const secondRevealedCard = newState.cards[newState.secondCardRevealed]
+
+      if(newState.cardRevealed === action.payload && !newState.secondCardRevealed){
+        return newState
+      }
+
+      if(!newState.cardRevealed){
+        newState.cardRevealed = action.payload
+        clickedCard.visable = true
+
+        return newState
+      }
+
+      if(newState.secondCardRevealed){
+        revealedCard.visable = false
+        secondRevealedCard.visable = false
+        newState.cardRevealed = null
+        newState.secondCardRevealed = null
+        return newState
+      }
+      clickedCard.visable = true
+
+      if(revealedCard.value === clickedCard.value){ //
+        revealedCard.visable = true
+        newState.cardRevealed = null
+
+      }else{
+        newState.secondCardRevealed = action.payload
+      }
+
+      return newState
+
+    default:
       return state
-
   }
 
 }

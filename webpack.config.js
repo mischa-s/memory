@@ -7,7 +7,7 @@ const PATHS = {
 
 module.exports = {
   entry:  PATHS.entry,
-  
+
 
   output: {
     path: PATHS.output,
@@ -20,7 +20,8 @@ module.exports = {
       Score: 'src/components/Score.js',
       Cards: 'src/components/Cards.js',
       SubmitName: 'src/components/SubmitName.js',
-      HighScore: 'src/components/HighScore.js'
+      HighScore: 'src/components/HighScore.js',
+      reducer: 'src/reducer.js'
 
     },
     extensions: ['','.js','.jsx']

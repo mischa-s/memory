@@ -9,7 +9,7 @@ module.exports = function(db) {
  function get(req, res, next) {
     db.find('highScores', {})
       .then (highScores => {
-        res.json({ data: highScores })
+        res.json(highScores)
       })
   }
   function post(req, res, next) {}
